@@ -7,10 +7,11 @@ Demo simply walks through the outputs switching the +5v to each of the
 outs lighting the LED.
 */
 
-RA4051 aswitch(12,11,10);
+RA4051 aswitch(12,11,10,9);
 
 void setup() {
     aswitch.setPin(0);
+    aswitch.on();
 }
 
 void loop() {
@@ -18,4 +19,7 @@ void loop() {
         aswitch.setPin(i);
         delay(300);
     }
+    aswitch.off();
+    delay(300);
+    aswitch.on();
 }
