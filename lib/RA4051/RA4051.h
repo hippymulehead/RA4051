@@ -20,8 +20,11 @@ class RA4051 {
         void on();
         // Disable the 4051
         void off();
+        // Turn set the pin to use for enable
         void setEnablePin(int enablePin);
+        // Digital demux
         int RADigitalRead();
+        // Analog demux
         int RAAnalogRead();
     protected:
         int             _s0;
