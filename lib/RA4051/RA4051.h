@@ -10,8 +10,8 @@ class RA4051 {
     public:
         // Init the object and set the pins to use for s0-s2
         RA4051(int s0, int s1, int s2);
-        // Use this init if you're connecting the enable pin (6)
-        RA4051(int s0, int s1, int s2, int enable);
+        // Use this init if to demux
+        RA4051(int s0, int s1, int s2, int readPin);
         // Set the multiplexer pin to "pinToSet"
         void setPin(int pinToSet);
         // Get what pin is currently set
@@ -20,6 +20,9 @@ class RA4051 {
         void on();
         // Disable the 4051
         void off();
+        void setEnablePin(int enablePin);
+        int RADigitalRead();
+        int RAAnalogRead();
     protected:
         int             _s0;
         int             _s1;
@@ -28,6 +31,8 @@ class RA4051 {
         int             _enableBit;
         int             _eb;
         int             _currentPin;
+        int             _readPin;
+        int             _cr;
     private:
 };
 #endif

@@ -12,16 +12,23 @@ RA4051::RA4051(int s0, int s1, int s2) {
     _eb = 0;
 }
 
-RA4051::RA4051(int s0, int s1, int s2, int enable) {
+RA4051::RA4051(int s0, int s1, int s2, int readPin) {
     _s0 = s0;
     _s1 = s1;
     _s2 = s2;
-    _e = enable;
+    _readPin = readPin;
     pinMode(_s0, OUTPUT);
     pinMode(_s1, OUTPUT);
     pinMode(_s2, OUTPUT);
-    pinMode(_e, OUTPUT);
+    pinMode(_readPin, OUTPUT);
     _currentPin = 0;
+    _eb = 0;
+    _cr = 1;
+}
+
+void RA4051::setEnablePin(int enablePin) {
+    _e = enablePin;
+    pinMode(_e, OUTPUT);
     _eb = 1;
 }
 
@@ -52,5 +59,21 @@ void RA4051::off() {
     if ((_eb == 1) && (_enableBit != HIGH)) {
         digitalWrite(_e, HIGH);
         _enableBit = HIGH;
+    }
+}
+
+int RA4051::RADigitalRead() {
+    if (_cr == 1) {
+        return digitalRead(_readPin);
+    } else {
+        return 0;
+    }
+}
+
+int RA4051::RAAnalogRead() {
+    if (_cr == 1) {
+        return analogRead(_readPin);
+    } else {
+        return 0;
     }
 }
