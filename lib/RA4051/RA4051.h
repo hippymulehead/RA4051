@@ -10,14 +10,20 @@ class RA4051 {
     public:
         // Init the object and set the pins to use for s0-s2
         RA4051(int s0, int s1, int s2);
+        RA4051(int s0, int s1, int s2, int enable);
         // Set the multiplexer pin to "pinToSet"
         void setPin(int pinToSet);
         // Get what pin is currently set
         int getCurrentPin();
+        void on();
+        void off();
     protected:
         int             _s0;
         int             _s1;
         int             _s2;
+        int             _e;
+        int             _enableBit;
+        int             _eb;
         int             _currentPin;
     private:
 };

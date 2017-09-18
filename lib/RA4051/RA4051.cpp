@@ -9,6 +9,20 @@ RA4051::RA4051(int s0, int s1, int s2) {
     pinMode(_s1, OUTPUT);
     pinMode(_s2, OUTPUT);
     _currentPin = 0;
+    _eb = 0;
+}
+
+RA4051::RA4051(int s0, int s1, int s2, int enable) {
+    _s0 = s0;
+    _s1 = s1;
+    _s2 = s2;
+    _e = enable;
+    pinMode(_s0, OUTPUT);
+    pinMode(_s1, OUTPUT);
+    pinMode(_s2, OUTPUT);
+    pinMode(_e, OUTPUT);
+    _currentPin = 0;
+    _eb = 1;
 }
 
 void RA4051::setPin(int pinToSet) {
@@ -25,4 +39,18 @@ void RA4051::setPin(int pinToSet) {
 
 int RA4051::getCurrentPin() {
     return _currentPin;
+}
+
+void RA4051::on() {
+    if ((_eb == 1) && (_enableBit != HIGH)) {
+        digitalWrite(_e, HIGH);
+        _enableBit = HIGH;
+    }
+}
+
+void RA4051::off() {
+    if ((_eb == 1) && (_enableBit != LOW)) {
+        digitalWrite(_e, LOW);
+        _enableBit = LOW;
+    }
 }
