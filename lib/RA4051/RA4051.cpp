@@ -42,15 +42,15 @@ int RA4051::getCurrentPin() {
 }
 
 void RA4051::on() {
-    if ((_eb == 1) && (_enableBit != HIGH)) {
-        digitalWrite(_e, HIGH);
-        _enableBit = HIGH;
+    if ((_eb == 1) && (_enableBit != LOW)) {
+        digitalWrite(_e, LOW);
+        _enableBit = LOW;
     }
 }
 
 void RA4051::off() {
-    if ((_eb == 1) && (_enableBit != LOW)) {
-        digitalWrite(_e, LOW);
-        _enableBit = LOW;
+    if ((_eb == 1) && (_enableBit != HIGH)) {
+        digitalWrite(_e, HIGH);
+        _enableBit = HIGH;
     }
 }
