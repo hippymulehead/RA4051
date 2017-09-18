@@ -1,6 +1,12 @@
 #include <Arduino.h>
 #include <RA4051.h>
 
+/*
+Simple demo.  +5v in then an LED and a r220 to ground from each output.
+Demo simply walks through the outputs switching the +5v to each of the 
+outs lighting the LED.
+*/
+
 RA4051 aswitch(12,11,10);
 
 void setup() {
