@@ -27,15 +27,15 @@ class RA4051 {
         // Analog demux read
         int RAAnalogRead();
     protected:
-        int             _s0;
-        int             _s1;
-        int             _s2;
-        int             _e;
-        int             _enableBit;
-        int             _eb;
-        int             _currentPin;
-        int             _readPin;
-        int             _cr;
+        int             m_s0;
+        int             m_s1;
+        int             m_s2;
+        int             m_e;
+        int             m_enableBit;
+        int             m_eb;
+        int             m_currentPin;
+        int             m_readPin;
+        int             m_cr;
     private:
 };
 #endif
