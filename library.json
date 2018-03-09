@@ -3,7 +3,7 @@
 "frameworks": "Arduino",
 "keywords": "4051,mux,demux",
 "description": "Arduino lib for the 4051 analog mux/demux chips",
-"version": "1.0.1",
+"version": "1.0.2",
 "url": "https://github.com/hippymulehead/RA4051",
 "authors":
 [
